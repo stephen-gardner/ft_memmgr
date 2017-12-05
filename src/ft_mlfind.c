@@ -25,17 +25,17 @@ static t_mlink	*find_mlink(t_mchain *mchain, void *ptr)
 
 t_mlink			*ft_mlfind(t_mchain *mchain, void *ptr)
 {
-	t_mchain	**mchead;
+	t_mchain	*mchead;
 	t_mlink		*mlink;
 
 	if (mchain)
 		return (find_mlink(mchain, ptr));
-	mchead = ft_mcgetall();
-	while (*mchead)
+	mchead = *ft_mcgetall();
+	while (mchead)
 	{
-		if ((mlink = find_mlink(*mchead, ptr)))
+		if ((mlink = find_mlink(mchead, ptr)))
 			return (mlink);
-		mchead = &(*mchead)->next;
+		mchead = mchead->next;
 	}
 	return (NULL);
 }
