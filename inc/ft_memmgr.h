@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 15:56:20 by sgardner          #+#    #+#             */
-/*   Updated: 2017/12/05 02:23:34 by sgardner         ###   ########.fr       */
+/*   Updated: 2017/12/05 20:52:46 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_bool			ft_mcexists(const char *label);
 */
 
 t_mlink			*ft_mladd(t_mchain *mchain, void *ptr, size_t size);
+t_mlink			*ft_mlappend(t_mchain *mchain, void *ptr, size_t size);
 void			**ft_mlarray(t_mchain *mchain);
 void			*ft_mlalloc(t_mchain *mchain, size_t size);
 t_mlink			*ft_mldel(t_mlink *mlink);
