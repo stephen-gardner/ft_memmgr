@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 01:54:10 by sgardner          #+#    #+#             */
-/*   Updated: 2017/12/05 01:59:04 by sgardner         ###   ########.fr       */
+/*   Updated: 2017/12/06 00:30:07 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_mlink	*find_mlink(t_mchain *mchain, void *ptr)
 {
 	t_mlink	*mlink;
 
-	mlink = mchain->links;
+	mlink = mchain->start;
 	while (mlink && mlink->ptr != ptr)
 		mlink = mlink->next;
 	return (mlink);

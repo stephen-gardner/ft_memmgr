@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 15:42:33 by sgardner          #+#    #+#             */
-/*   Updated: 2017/12/04 22:15:01 by sgardner         ###   ########.fr       */
+/*   Updated: 2017/12/06 00:31:04 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ t_mlink	*ft_mlrev(t_mchain *mchain)
 	t_mlink		*prev;
 	t_mlink		*next;
 
-	if (!(current = mchain->links))
+	if (!(current = mchain->start))
 		return (NULL);
+	if (mchain->end == current)
+		return (current);
+	mchain->end = current;
 	prev = NULL;
 	while (TRUE)
 	{
@@ -31,5 +34,5 @@ t_mlink	*ft_mlrev(t_mchain *mchain)
 			break ;
 		current = next;
 	}
-	return ((mchain->links = current));
+	return ((mchain->start = current));
 }

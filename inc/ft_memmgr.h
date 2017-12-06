@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 15:56:20 by sgardner          #+#    #+#             */
-/*   Updated: 2017/12/05 20:52:46 by sgardner         ###   ########.fr       */
+/*   Updated: 2017/12/06 00:27:46 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ typedef struct	s_mchain
 {
 	char			label[MCHAIN_LABEL_MAXLEN];
 	int				link_count;
-	struct s_mlink	*links;
+	struct s_mlink	*start;
+	struct s_mlink	*end;
 	struct s_mchain	*next;
 }				t_mchain;
 

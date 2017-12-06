@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 15:15:13 by sgardner          #+#    #+#             */
-/*   Updated: 2017/12/05 02:03:07 by sgardner         ###   ########.fr       */
+/*   Updated: 2017/12/06 00:29:41 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	**ft_mlarray(t_mchain *mchain)
 	size = sizeof(void *) * (mchain->link_count + 1);
 	if (!(array = ft_memalloc(size)))
 		return (NULL);
-	current = mchain->links;
+	current = mchain->start;
 	i = 0;
 	while (i < mchain->link_count)
 	{

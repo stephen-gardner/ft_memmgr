@@ -11,6 +11,7 @@ SRC = \
 	ft_memset\
 	ft_mladd\
 	ft_mlalloc\
+	ft_mlappend\
 	ft_mlarray\
 	ft_mldel\
 	ft_mlfind\
