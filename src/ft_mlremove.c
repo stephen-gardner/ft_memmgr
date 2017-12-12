@@ -17,14 +17,19 @@ t_mlink	*ft_mlremove(t_mlink *mlink)
 {
 	t_mchain	*mchain;
 	t_mlink		**current;
+	t_mlink		*prev;
 
 	mchain = mlink->mchain;
-	if (mchain->end == mlink)
-		mchain->end = NULL;
+	prev = NULL;
 	current = &mchain->start;
 	while (*current != mlink)
+	{
+		prev = *current;
 		current = &(*current)->next;
+	}
 	*current = (*current)->next;
+	if (!*current)
+		mchain->end = prev;
 	free(mlink);
 	mchain->link_count--;
 	return (*current);
