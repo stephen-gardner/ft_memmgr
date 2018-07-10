@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mldel.c                                         :+:      :+:    :+:   */
+/*   ft_mlsize.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 00:54:52 by sgardner          #+#    #+#             */
-/*   Updated: 2018/07/10 02:06:45 by sgardner         ###   ########.fr       */
+/*   Created: 2018/04/12 00:52:38 by sgardner          #+#    #+#             */
+/*   Updated: 2018/07/10 02:08:20 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "ft_memmgr.h"
 
-t_mlink		*ft_mldel(t_mlink *mlink)
+size_t	ft_mlsize(t_mlink *mlink)
 {
-	if (CANFREE(mlink))
-		free(mlink->ptr);
-	return (ft_mlremove(mlink));
+	size_t	len;
+
+	len = 0;
+	while (mlink)
+	{
+		len += MLSIZE(mlink);
+		mlink = mlink->next;
+	}
+	return (len);
 }

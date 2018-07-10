@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 01:28:57 by sgardner          #+#    #+#             */
-/*   Updated: 2017/12/06 00:30:51 by sgardner         ###   ########.fr       */
+/*   Updated: 2018/03/19 18:04:58 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ t_mlink	*ft_mlremove(t_mlink *mlink)
 	if (!*current)
 		mchain->end = prev;
 	free(mlink);
-	mchain->link_count--;
+	--mchain->link_count;
 	return (*current);
 }

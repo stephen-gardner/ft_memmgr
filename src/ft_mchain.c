@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 15:57:27 by sgardner          #+#    #+#             */
-/*   Updated: 2017/12/06 00:28:16 by sgardner         ###   ########.fr       */
+/*   Updated: 2018/07/10 02:03:02 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,11 @@ int			ft_mcdel(t_mchain *mchain)
 	while (mchain->start)
 	{
 		next_link = mchain->start->next;
-		free(mchain->start->ptr);
+		if (CANFREE(mchain->start))
+			free(mchain->start->ptr);
 		free(mchain->start);
 		mchain->start = next_link;
-		count++;
+		++count;
 	}
 	mchead = ft_mcgetall();
 	while (*mchead && *mchead != mchain)
@@ -77,10 +78,11 @@ int			ft_mcdelall(void)
 		while ((*mchain)->start)
 		{
 			next_link = (*mchain)->start->next;
-			free((*mchain)->start->ptr);
+			if (CANFREE((*mchain)->start))
+				free((*mchain)->start->ptr);
 			free((*mchain)->start);
 			(*mchain)->start = next_link;
-			count++;
+			++count;
 		}
 		next_chain = (*mchain)->next;
 		free(*mchain);

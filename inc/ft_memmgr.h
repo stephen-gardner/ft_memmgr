@@ -6,7 +6,7 @@
 /*   By: sgardner <stephenbgardner@gmail.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 15:56:20 by sgardner          #+#    #+#             */
-/*   Updated: 2017/12/06 00:27:46 by sgardner         ###   ########.fr       */
+/*   Updated: 2018/07/10 16:57:00 by sgardner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 # define FT_MEMMGR_H
 # include "libft.h"
 
-# define MCHAIN_LABEL_MAXLEN 26
+# define MCHAIN_LABEL_MAXLEN	26
+# define NOFREE					(~(SIZE_MAX >> 1))
+# define CANFREE(mlink)			(!(mlink->size & NOFREE))
+# define REALSIZE(x)			(x & (SIZE_MAX >> 1))
+# define MLSIZE(mlink)			REALSIZE(mlink->size)
 
 typedef struct	s_mchain
 {
@@ -56,5 +60,6 @@ t_mlink			*ft_mlfind(t_mchain *mchain, void *ptr);
 t_mlink			*ft_mlpop(t_mchain *mchain);
 t_mlink			*ft_mlremove(t_mlink *mlink);
 t_mlink			*ft_mlrev(t_mchain *mchain);
+size_t			ft_mlsize(t_mlink *mlink);
 t_mlink			*ft_mlxfer(t_mlink *mlink, t_mchain *mchain);
 #endif
